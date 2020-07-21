@@ -8,8 +8,6 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
-
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -26,17 +24,12 @@ import frc.robot.commands.*;
  */
 public class RobotContainer {
   private final DriveSubsystem m_drive = new DriveSubsystem();
+  private final ShooterSubsystem m_shooter = new ShooterSubsystem();
 
   public XboxController m_xboxController = new XboxController(0);
 
   public RobotContainer() {
     configureButtonBindings();
-
-    m_drive.setDefaultCommand(
-      new ArcadeDrive(
-        m_drive,
-        () -> m_xboxController.getY(Hand.kLeft) * Constants.kDriveSpeed,
-        () -> m_xboxController.getX(Hand.kRight)));
   }
 
   private void configureButtonBindings() {
@@ -46,7 +39,7 @@ public class RobotContainer {
         new TankDrive(
           m_drive,
           () -> m_xboxController.getY(Hand.kLeft) * Constants.kDriveSpeed,
-          () -> m_xboxController.getY(Hand.kRight) * Constants.kDriveSpeed), true);
+          () -> m_xboxController.getY(Hand.kRight) * Constants.kTurnSpeed), true);
 
     // toggle to arcade drive
     new JoystickButton(m_xboxController, Button.kBack.value)
@@ -55,6 +48,10 @@ public class RobotContainer {
           m_drive,
           () -> m_xboxController.getY(Hand.kLeft) * Constants.kDriveSpeed,
           () -> m_xboxController.getX(Hand.kRight) * Constants.kDriveSpeed), true);
+
+    new JoystickButton(m_xboxController, Button.kA.value)
+      .whenPressed(new ShooterPush(m_shooter), true)
+      .whenReleased(new ShooterPullback(m_shooter), true);
   }
 
   /**

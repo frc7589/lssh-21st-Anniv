@@ -29,9 +29,14 @@ public final class Constants {
     // Joystick map
     public final int kJoystickPort = 0;
 
-    // Other constants
-    public final static double kDriveSpeed = 0.4;
+    // Subsystems constants
+    // Drive
+    public final static double kDriveSpeed = 0.7;
     public final static double kTurnSpeed = 0.6;
+
+    // Shooter
+    public final static double kPushAngle = 0.1;
+    public final static double kPullAngle = 0.9;
 
     public Constants() {
 
@@ -49,6 +54,9 @@ public final class Constants {
         setCAN("drive_lb", 2);
         setCAN("drive_rf", 1);
         setCAN("drive_rb", 3);
+
+        // map for PWM servo
+        setPWM("ball_pusher", 0);
     }
 
     /**
