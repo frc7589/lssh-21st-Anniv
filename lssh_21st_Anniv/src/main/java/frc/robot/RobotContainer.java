@@ -33,10 +33,10 @@ public class RobotContainer {
     configureButtonBindings();
 
     m_drive.setDefaultCommand(
-       new TankDrive(
-         m_drive,
-         () -> m_xboxController.getY(Hand.kLeft),
-         () -> m_xboxController.getX(Hand.kRight)));
+      new ArcadeDrive(
+        m_drive,
+        () -> m_xboxController.getY(Hand.kLeft) * Constants.kDriveSpeed,
+        () -> m_xboxController.getX(Hand.kRight)));
   }
 
   private void configureButtonBindings() {
@@ -45,16 +45,16 @@ public class RobotContainer {
       .whenPressed(
         new TankDrive(
           m_drive,
-          () -> m_xboxController.getY(Hand.kLeft),
-          () -> m_xboxController.getY(Hand.kRight)), true);
+          () -> m_xboxController.getY(Hand.kLeft) * Constants.kDriveSpeed,
+          () -> m_xboxController.getY(Hand.kRight) * Constants.kDriveSpeed), true);
 
     // toggle to arcade drive
     new JoystickButton(m_xboxController, Button.kBack.value)
       .whenPressed(
         new ArcadeDrive(
           m_drive,
-          () -> m_xboxController.getY(Hand.kLeft),
-          () -> m_xboxController.getX(Hand.kRight)), true);
+          () -> m_xboxController.getY(Hand.kLeft) * Constants.kDriveSpeed,
+          () -> m_xboxController.getX(Hand.kRight) * Constants.kDriveSpeed), true);
   }
 
   /**

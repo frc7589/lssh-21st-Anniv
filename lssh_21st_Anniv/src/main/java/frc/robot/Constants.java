@@ -30,7 +30,8 @@ public final class Constants {
     public final int kJoystickPort = 0;
 
     // Other constants
-    public final double kDriveSpeed = 1;
+    public final static double kDriveSpeed = 0.4;
+    public final static double kTurnSpeed = 0.6;
 
     public Constants() {
 

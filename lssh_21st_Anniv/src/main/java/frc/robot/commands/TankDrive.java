@@ -25,6 +25,6 @@ public class TankDrive extends CommandBase {
 
     @Override
     public void execute() {
-        m_drive.tankDrive(m_rightSide.getAsDouble(), m_leftSide.getAsDouble());
+        m_drive.tankDrive(m_leftSide.getAsDouble(), m_rightSide.getAsDouble());
     }
 }
