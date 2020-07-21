@@ -6,16 +6,20 @@ import frc.robot.Constants;
 import frc.robot.Robot;
 
 public class ShooterSubsystem extends SubsystemBase {
-    private Servo ballPusher = new Servo(Robot.getConstants().getPWM("ball_pusher"));
+    private Servo ballController = new Servo(Robot.getConstants().getPWM("ball_pusher"));
 
+    /**
+   * Create a subsystem for shooter for the lssh 21st anniversary robot. Not completed.
+   */
     public ShooterSubsystem() {
+
     }
 
-    public void push() {
-        ballPusher.set(Constants.kPushAngle);
+    public void BallControllerPush() {
+        ballController.set(Constants.kPushAngle);
     }
     
-    public void pull() {
-        ballPusher.set(Constants.kPullAngle);
+    public void BallControllerPull() {
+        ballController.set(Constants.kPullAngle);
     }
 }

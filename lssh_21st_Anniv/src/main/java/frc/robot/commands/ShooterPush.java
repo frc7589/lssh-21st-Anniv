@@ -12,6 +12,6 @@ public class ShooterPush extends CommandBase {
 
     @Override
     public void execute() {
-        m_shooter.push();
+        m_shooter.BallControllerPush();
     }
 }

@@ -30,13 +30,14 @@ public final class Constants {
     public final int kJoystickPort = 0;
 
     // Subsystems constants
-    // Drive
+    // Base drive
     public final static double kDriveSpeed = 0.7;
     public final static double kTurnSpeed = 0.6;
 
     // Shooter
     public final static double kPushAngle = 0.0;
     public final static double kPullAngle = 0.25;
+
 
     public Constants() {
 
@@ -49,7 +50,7 @@ public final class Constants {
 
         // loading map values for drive
         // first character = left or right
-        // second character = front, middle, or back
+        // second character = front, or back
         setCAN("drive_lf", 0);
         setCAN("drive_lb", 2);
         setCAN("drive_rf", 1);
