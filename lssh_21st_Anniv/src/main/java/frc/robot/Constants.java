@@ -35,8 +35,8 @@ public final class Constants {
     public final static double kTurnSpeed = 0.6;
 
     // Shooter
-    public final static double kPushAngle = 0.1;
-    public final static double kPullAngle = 0.9;
+    public final static double kPushAngle = 0.0;
+    public final static double kPullAngle = 0.25;
 
     public Constants() {
 

@@ -30,6 +30,12 @@ public class RobotContainer {
 
   public RobotContainer() {
     configureButtonBindings();
+
+    m_drive.setDefaultCommand(
+      new TankDrive(
+        m_drive,
+        () -> m_xboxController.getY(Hand.kLeft) * Constants.kDriveSpeed,
+        () -> m_xboxController.getY(Hand.kRight) * Constants.kTurnSpeed));
   }
 
   private void configureButtonBindings() {
