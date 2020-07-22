@@ -55,9 +55,11 @@ public class RobotContainer {
           () -> m_xboxController.getY(Hand.kLeft) * Constants.kDriveSpeed,
           () -> m_xboxController.getX(Hand.kRight) * Constants.kDriveSpeed), true);
 
-    new JoystickButton(m_xboxController, Button.kA.value)
+    new JoystickButton(m_xboxController, Button.kB.value)
       .whenPressed(new ShooterPush(m_shooter), true)
       .whenReleased(new ShooterPullback(m_shooter), true);
+    new JoystickButton(m_xboxController, Button.kA.value)
+      .toggleWhenPressed(new Shoot(m_shooter), true);
   }
 
   /**
