@@ -12,6 +12,6 @@ public class ShooterPullback extends CommandBase {
 
     @Override
     public void execute() {
-        m_shooter.pull();
+        m_shooter.BallControllerPull();
     }
 }

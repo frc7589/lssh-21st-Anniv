@@ -30,13 +30,15 @@ public final class Constants {
     public final int kJoystickPort = 0;
 
     // Subsystems constants
-    // Drive
+    // Base drive
     public final static double kDriveSpeed = 0.7;
     public final static double kTurnSpeed = 0.6;
 
     // Shooter
-    public final static double kPushAngle = 0.1;
-    public final static double kPullAngle = 0.9;
+    public final static double kPushAngle = 0.25;
+    public final static double kPullAngle = 0;
+    public final static double kWheelSpeed = 0.6;
+
 
     public Constants() {
 
@@ -47,13 +49,12 @@ public final class Constants {
         mapCTRL = new HashMap<>();
         mapSys = new HashMap<>();
 
-        // loading map values for drive
-        // first character = left or right
-        // second character = front, middle, or back
+        // map for CAN devices for VictorSPX
         setCAN("drive_lf", 0);
         setCAN("drive_lb", 2);
         setCAN("drive_rf", 1);
         setCAN("drive_rb", 3);
+        setCAN("wheel", 4);
 
         // map for PWM servo
         setPWM("ball_pusher", 0);

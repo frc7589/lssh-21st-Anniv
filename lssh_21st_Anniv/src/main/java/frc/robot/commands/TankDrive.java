@@ -10,12 +10,6 @@ public class TankDrive extends CommandBase {
     private final DoubleSupplier m_rightSide;
     private final DoubleSupplier m_leftSide;
 
-    /**
-     * 
-     * @param drive
-     * @param forward
-     * @param rotation
-     */
     public TankDrive(DriveSubsystem drive, DoubleSupplier rightSide, DoubleSupplier LeftSide) {
         m_drive = drive;
         m_rightSide = rightSide;
