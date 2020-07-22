@@ -37,6 +37,8 @@ public final class Constants {
     // Shooter
     public final static double kPushAngle = 0.0;
     public final static double kPullAngle = 0.25;
+    public final static double kUpperWheelSpeed = 0.6;
+    public final static double kLowerWheelSpeed = 0.6;
 
 
     public Constants() {
@@ -48,13 +50,13 @@ public final class Constants {
         mapCTRL = new HashMap<>();
         mapSys = new HashMap<>();
 
-        // loading map values for drive
-        // first character = left or right
-        // second character = front, or back
+        // map for CAN devices
         setCAN("drive_lf", 0);
         setCAN("drive_lb", 2);
         setCAN("drive_rf", 1);
         setCAN("drive_rb", 3);
+        setCAN("upper_wheel", 4);
+        setCAN("lower_wheel", 5);
 
         // map for PWM servo
         setPWM("ball_pusher", 0);
