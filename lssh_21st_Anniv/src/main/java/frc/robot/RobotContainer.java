@@ -59,9 +59,7 @@ public class RobotContainer {
 
           
     new JoystickButton(m_xboxController, Button.kX.value)
-    .whenPressed(new Shoot(m_shooter), true);
-    new JoystickButton(m_xboxController, Button.kY.value)
-    .whenPressed(new ShootStop(m_shooter), true);
+    .whenPressed(new ToggleShoot(m_shooter), true);
     new JoystickButton(m_xboxController, Button.kB.value)
       .whenHeld(new ShooterPush(m_shooter), true);
     new JoystickButton(m_xboxController, Button.kBumperRight.value)

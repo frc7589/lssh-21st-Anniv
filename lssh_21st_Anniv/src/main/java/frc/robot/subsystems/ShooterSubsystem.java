@@ -10,6 +10,7 @@ import frc.robot.Robot;
 public class ShooterSubsystem extends SubsystemBase {
     private Servo ballController = new Servo(Robot.getConstants().getPWM("ball_pusher"));
     private WPI_VictorSPX wheel = new WPI_VictorSPX(Robot.getConstants().getCAN("wheel"));
+    private Boolean shooting = false;
 
     /**
    * Create a subsystem for shooter for the lssh 21st anniversary robot.
@@ -26,11 +27,14 @@ public class ShooterSubsystem extends SubsystemBase {
     public void BallControllerPull() {
         ballController.set(Constants.kPullAngle);
     }
-
-    public void StartShooting() {
-        wheel.set(Constants.kWheelSpeed);
-    }
-    public void StopShooting() {
-        wheel.set(0);
+    
+    public void ToggleShooting() {
+        shooting = !shooting;
+        if (shooting) {
+            wheel.set(Constants.kWheelSpeed);
+        }
+        else {
+            wheel.set(0);
+        }
     }
 }
