@@ -14,9 +14,4 @@ public class Shoot extends CommandBase {
     public void execute() {
         m_shooter.StartShooting();
     }
-
-    @Override
-    public void end(boolean interrupted) {
-        m_shooter.StopShooting();
-    }
 }

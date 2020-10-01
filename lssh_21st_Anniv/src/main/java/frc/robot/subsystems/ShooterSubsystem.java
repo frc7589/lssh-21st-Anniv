@@ -12,7 +12,7 @@ public class ShooterSubsystem extends SubsystemBase {
     private WPI_VictorSPX wheel = new WPI_VictorSPX(Robot.getConstants().getCAN("wheel"));
 
     /**
-   * Create a subsystem for shooter for the lssh 21st anniversary robot. Not completed.
+   * Create a subsystem for shooter for the lssh 21st anniversary robot.
    */
     public ShooterSubsystem() {
 

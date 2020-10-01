@@ -25,6 +25,7 @@ import frc.robot.commands.*;
 public class RobotContainer {
   private final DriveSubsystem m_drive = new DriveSubsystem();
   private final ShooterSubsystem m_shooter = new ShooterSubsystem();
+  private final ElevatorSubsystem m_elevator = new ElevatorSubsystem();
 
   public XboxController m_xboxController = new XboxController(0);
 
@@ -35,10 +36,11 @@ public class RobotContainer {
       new TankDrive(
         m_drive,
         () -> m_xboxController.getY(Hand.kLeft) * Constants.kDriveSpeed,
-        () -> m_xboxController.getY(Hand.kRight) * Constants.kTurnSpeed));
+        () -> m_xboxController.getY(Hand.kRight) * Constants.kDriveSpeed));
   }
 
   private void configureButtonBindings() {
+    
     // toggle to tank drive
     new JoystickButton(m_xboxController, Button.kStart.value)
       .whenPressed(
@@ -55,11 +57,17 @@ public class RobotContainer {
           () -> m_xboxController.getY(Hand.kLeft) * Constants.kDriveSpeed,
           () -> m_xboxController.getX(Hand.kRight) * Constants.kDriveSpeed), true);
 
+          
+    new JoystickButton(m_xboxController, Button.kX.value)
+    .whenPressed(new Shoot(m_shooter), true);
+    new JoystickButton(m_xboxController, Button.kY.value)
+    .whenPressed(new ShootStop(m_shooter), true);
     new JoystickButton(m_xboxController, Button.kB.value)
-      .whenPressed(new ShooterPush(m_shooter), true)
-      .whenReleased(new ShooterPullback(m_shooter), true);
-    new JoystickButton(m_xboxController, Button.kA.value)
-      .toggleWhenPressed(new Shoot(m_shooter), true);
+      .whenHeld(new ShooterPush(m_shooter), true);
+    new JoystickButton(m_xboxController, Button.kBumperRight.value)
+      .whenHeld(new ElevatorUp(m_elevator), true);
+    new JoystickButton(m_xboxController, Button.kBumperLeft.value)
+      .whenHeld(new ElevatorDown(m_elevator), true);
   }
 
   /**
